@@ -5,12 +5,12 @@ from typing import Dict, Any, Optional
 #create logger for this class
 logger = logging.getLogger(__name__)
 
-class Extractor:
+class Extract:
     
     def __init__(self, url: str):
         self.url = url
     
-    def extract(self, count: int = 100) -> Optional[Dict[str, Any]]:
+    def extract_data(self, count: int = 100) -> Optional[Dict[str, Any]]:
 
         try:
             logger.info(f"Extracting {count} users from {self.url}")

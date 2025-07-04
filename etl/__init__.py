@@ -1,6 +1,6 @@
 
-from .extract import Extractor
-from .transform import Transformer
-from .load import Loader
+from .extract import Extract
+from .transform import Transform
+from .load import Load
 
-__all__ = ['Extractor', 'Transformer', 'Loader']
+__all__ = ['Extract', 'Transform', 'Load']

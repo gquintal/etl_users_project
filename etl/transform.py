@@ -6,7 +6,7 @@ from email_validator import validate_email, EmailNotValidError
 #create logger for this class
 logger = logging.getLogger(__name__)
 
-class Transformer:
+class Transform:
 
     logger.info("Start data transformation process")
 
