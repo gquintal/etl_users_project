@@ -2,14 +2,24 @@ import csv
 import os
 import logging
 from typing import List, Dict, Any
+from dotenv import load_dotenv
 
 logger = logging.getLogger(__name__)
 
+# Load environment variables from .env file
+load_dotenv()
+
+# Get the output filename from environment variable or use default
+filename = os.getenv('OUTPUT_FILENAME', 'users_cleaned.csv')
+
+# Get the output directory from environment variable or use default
+output_dir = os.getenv('OUTPUT_DIR', 'output')
+
 class Loader:
-    def __init__(self, output_dir: str):
+    def __init__(self, output_dir: str = output_dir):
         self.output_dir = output_dir
 
-    def load(self, users: List[Dict[str, Any]], filename: str = 'users_cleaned.csv') -> bool:
+    def load(self, users: List[Dict[str, Any]], filename: str = filename) -> bool:
 
         if not users:
             logger.warning("No users to load. Exiting load process.")

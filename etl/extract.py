@@ -14,6 +14,7 @@ class Extractor:
         try:
             logger.info(f"Extracting {count} users from {self.url}")
 
+            # Make a GET request to the API endpoint with the specified count
             response = requests.get(self.url+str(count), timeout=30)
             response.raise_for_status()
 
