@@ -68,8 +68,8 @@ Este proyecto implementa un pipeline ETL (Extract, Transform, Load) que automati
 
 ⚙️ Configuración
 Variables de entorno (opcional)
-# URL de la API (puedes agregar un default)
-# Ejemplos:
+## URL de la API (puedes agregar un default)
+## Ejemplos:
 ```bash
     # API Configuration
     USERS_API_URL="https://randomuser.me/api/"
