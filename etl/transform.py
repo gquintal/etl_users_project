@@ -85,9 +85,8 @@ class Transform:
         for user in users:
             try:
                 # This assumes the user ID is in the 'login' field with a 'uuid' key
-                user_id = user.get('login', {}).get('uuid', '')
+                user_id = user.get('id', {}).get('name', '')
                 if not user_id or user_id in seen_ids:
-                    logger.info(f"User ID missing or duplicate: {user_id}")
                     continue
                 
                 # Validate email
