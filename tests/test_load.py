@@ -1,8 +1,8 @@
 import pytest
 import csv
-from etl.load import Loader
+from etl.load import Load
 
-loader = Loader()
+loader = Load()
 
 def test_created_to_csv_success(tmp_path):
     users = [
