@@ -2,7 +2,7 @@ import logging
 import os
 import sys
 from dotenv import load_dotenv
-from etl import Extractor, Transformer, Loader
+from etl import Extract, Transform, Load
 
 def setup_logging():
     logging.basicConfig(
@@ -41,8 +41,8 @@ def main():
     try:
         #Extract
         logger.info("Starting data extraction")
-        extractor = Extractor()
-        raw_data = extractor.extract(url,count)
+        extract = Extract()
+        raw_data = extract.extract_data(url,count)
         
         if not raw_data:
             logging.error("No data extracted, exiting ETL process")
@@ -50,8 +50,8 @@ def main():
         
         #Transform
         logger.info("Starting data transformation")
-        transformer = Transformer()
-        users_transformed = transformer.transform(raw_data)
+        transform = Transform()
+        users_transformed = transform.transform(raw_data)
 
         if not users_transformed:
             logging.error("No data transformed, exiting ETL process")
@@ -59,10 +59,10 @@ def main():
                 
         #Load
         logger.info("Starting data loading")
-        loader = Loader()
-        loader.load(users_transformed)
+        load = Load()
+        load.load_file(users_transformed)
 
-        if loader:
+        if load:
             logger.info("Data loaded successfully")
             return True
         else:
