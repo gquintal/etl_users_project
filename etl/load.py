@@ -4,6 +4,7 @@ import logging
 from typing import List, Dict, Any
 from dotenv import load_dotenv
 
+#create logger for this class
 logger = logging.getLogger(__name__)
 
 # Load environment variables from .env file

@@ -3,6 +3,7 @@ import logging
 from typing import List, Dict, Any, Set
 from email_validator import validate_email, EmailNotValidError
 
+#create logger for this class
 logger = logging.getLogger(__name__)
 
 class Transformer:
@@ -86,7 +87,7 @@ class Transformer:
                 # This assumes the user ID is in the 'login' field with a 'uuid' key
                 user_id = user.get('login', {}).get('uuid', '')
                 if not user_id or user_id in seen_ids:
-                    logger.debug(f"User ID missing or duplicate: {user_id}")
+                    logger.info(f"User ID missing or duplicate: {user_id}")
                     continue
                 
                 # Validate email

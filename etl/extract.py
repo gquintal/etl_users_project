@@ -2,6 +2,7 @@ import requests
 import logging
 from typing import Dict, Any, Optional
 
+#create logger for this class
 logger = logging.getLogger(__name__)
 
 class Extractor:
