@@ -27,10 +27,7 @@ class Transform:
     def normalize_name(self, user: Dict) -> str:
         full_name = ''
 
-        # Extracting name components
-        if not user:
-            logger.warning("User data is empty or None")
-            return full_name
+        # Extracting name components        
         name = user.get('name', {})
 
         first = name.get('first', '').strip()
@@ -43,10 +40,6 @@ class Transform:
 
     def normalize_address(self, user: Dict) -> str:
         full_street = ''
-
-        if not user:
-            logger.warning("User data is empty or None")
-            return full_street
 
         # Extracting address components
         location = user.get('location', {})

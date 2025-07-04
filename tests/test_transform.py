@@ -53,8 +53,8 @@ def test_normalize_address():
 #Test validate unique IDs
 def test_transform_unique_ids_and_filter():
     users = [
-        {'login': {
-            'uuid': '1'
+        {'id': {
+            'name': '1'
             }, 
             'email': 'test@example.com', 
             'name': {
@@ -71,8 +71,8 @@ def test_transform_unique_ids_and_filter():
                 'postcode': '1'
                 }
             },
-        {'login': {
-            'uuid': '1'
+        {'id': {
+            'name': '1'
             }, 
             'email': 'test@example.com', 
             'name': {
@@ -88,8 +88,8 @@ def test_transform_unique_ids_and_filter():
                     'postcode': '1'
                     }
                 },
-        {'login': {
-            'uuid': '2'
+        {'id': {
+            'name': '2'
             }, 
             'email': 'invalid',
             'name': {

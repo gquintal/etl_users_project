@@ -29,10 +29,10 @@ def main():
     output_dir = os.getenv('ETL_OUTPUT_DIR', 'output')
     filename = os.getenv('ETL_OUTPUT_FILE', 'users_cleaned.csv')
     
-    logger.info("Starting ETL process")
+    logger.info("** Starting ETL process **")
 
     try:
-        # Vakidate URL
+        # Validate URL
         if not url.startswith('http'):
             raise ValueError("The URL must start with 'http' or 'https'")
         logger.info("The URL is valid")
@@ -43,7 +43,7 @@ def main():
     
     try:
         #Extract
-        logger.info("Starting data extraction")
+        logger.info("Starting data extraction...")
         extract = Extract(url, counter)
         raw_data = extract.extract_data()
         
@@ -52,7 +52,7 @@ def main():
             return False
         
         #Transform
-        logger.info("Starting data transformation")
+        logger.info("Starting data transformation...")
         transform = Transform()
         users_transformed = transform.transform(raw_data)
 
@@ -61,7 +61,7 @@ def main():
             return False
                 
         #Load
-        logger.info("Starting data loading")
+        logger.info("Starting data loading...")
         load = Load(output_dir)
         load.load_file(users_transformed, filename)
 
