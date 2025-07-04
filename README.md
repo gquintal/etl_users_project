@@ -10,10 +10,10 @@ Proceso ETL desarrollado en Python que extrae datos de usuarios desde una API p�
 - [Instalación](#instalación)
 - [Uso](#uso)
 - [Estructura del Proyecto](#estructura-del-proyecto)
+- [Configuración](#configuración)
 - [Contribuciones](#contribuciones)
-- [Licencia](#licencia)
 
-## 📋 Descripción
+## Descripción
 
 Este proyecto implementa un pipeline ETL (Extract, Transform, Load) que automatiza la recolección, limpieza y almacenamiento de datos de usuarios provenientes de una API pública. El resultado se almacena en un archivo CSV listo para análisis o integración en otros sistemas.
 
@@ -24,7 +24,7 @@ Este proyecto implementa un pipeline ETL (Extract, Transform, Load) que automati
 - Carga de datos en formato CSV
 - Código 100% Python
 
-🚀 Instalación y Configuración
+# 🚀 Instalación y Configuración
 
 ## Requisitos
 
@@ -56,7 +56,7 @@ Este proyecto implementa un pipeline ETL (Extract, Transform, Load) que automati
 
 2. El archivo CSV generado estará disponible en la carpeta de salida especificada en el código.
 
-## 🏗️ Estructura del Proyecto
+## Estructura del Proyecto
 
 - `main.py`: Orquestador del proceso ETL.
 - `etl/`: Módulos para cada fase del ETL.
@@ -66,18 +66,20 @@ Este proyecto implementa un pipeline ETL (Extract, Transform, Load) que automati
 - `output/`: Carpeta para archivos generados.
 - `requirements.txt`: Dependencias del proyecto.
 
-⚙️ Configuración
-Variables de entorno (opcional)
-## URL de la API (puedes agregar un default)
-## Ejemplos:
+## Configuración
+Configurar Variables de entorno (.env) (puedes agregar valores default en el código)
+
+Ejemplos:
+
 ```bash
     # API Configuration
-    USERS_API_URL="https://randomuser.me/api/"
-    USERS_COUNT=100
+    USERS_API_URL="https://randomuser.me/api/"    #URL de la API (puedes agregar un default en el código)
+    USERS_COUNT=100                               
 
     # Output Configuration  
     ETL_OUTPUT_DIR=output
     ETL_OUTPUT_FILE=users_cleaned.csv
+```
 
 ## Contribuciones
 
