@@ -24,28 +24,31 @@ def main():
 
     # Get environment variables
     url = os.getenv('USERS_API_URL')
-    count = os.getenv('USERS_COUNT', '100')
+    counter = os.getenv('USERS_COUNT')
 
-    logger.info("Iniciando el proceso ETL")
+    output_dir = os.getenv('OUTPUT_DIR', 'output')
+    filename = os.getenv('OUTPUT_FILENAME', 'users_cleaned.csv')
+    
+    logger.info("Starting ETL process")
 
     try:
         # Vakidate URL
         if not url.startswith('http'):
-            raise ValueError("La URL debe comenzar con 'http' o 'https'")
-        logging.info("URL de la API es válida")
+            raise ValueError("The URL must start with 'http' or 'https'")
+        logger.info("The URL is valid")
     
     except ValueError as ve:
-        logging.error(f"Error de validación de URL: {ve}")
+        logger.error(f"Invalid URL provided: {ve}")
         return
     
     try:
         #Extract
         logger.info("Starting data extraction")
-        extract = Extract()
-        raw_data = extract.extract_data(url,count)
+        extract = Extract(url, counter)
+        raw_data = extract.extract_data()
         
         if not raw_data:
-            logging.error("No data extracted, exiting ETL process")
+            logger.error("No data extracted, exiting ETL process")
             return False
         
         #Transform
@@ -59,8 +62,8 @@ def main():
                 
         #Load
         logger.info("Starting data loading")
-        load = Load()
-        load.load_file(users_transformed)
+        load = Load(output_dir)
+        load.load_file(users_transformed, filename)
 
         if load:
             logger.info("Data loaded successfully")
@@ -75,4 +78,3 @@ def main():
     
 if __name__ == "__main__":
     main()
-    logging.info("ETL process completed")

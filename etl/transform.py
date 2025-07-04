@@ -107,7 +107,7 @@ class Transform:
             
             except Exception as e:
                 logger.error(f"Error transforming user: {e}")
-                continue
+                raise
 
         logger.info(f"Transformed {len(transformed)} users successfully")
         return transformed

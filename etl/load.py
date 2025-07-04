@@ -17,10 +17,10 @@ filename = os.getenv('OUTPUT_FILENAME', 'users_cleaned.csv')
 output_dir = os.getenv('OUTPUT_DIR', 'output')
 
 class Load:
-    def __init__(self, output_dir: str = output_dir):
+    def __init__(self, output_dir: str):
         self.output_dir = output_dir
 
-    def load_file(self, users: List[Dict[str, Any]], filename: str = filename) -> bool:
+    def load_file(self, users: List[Dict[str, Any]], filename: str) -> bool:
 
         if not users:
             logger.warning("No users to load. Exiting load process.")

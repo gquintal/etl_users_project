@@ -105,6 +105,6 @@ def test_transform_unique_ids_and_filter():
                 'state': 'V', 
                 'postcode': '2'}}
     ]
-    result = transform(users)
+    result = transform.transform(users)
     assert len(result) == 1
     assert result[0]['id'] == '1'
