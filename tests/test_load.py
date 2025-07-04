@@ -2,18 +2,18 @@ import pytest
 import csv
 from etl.load import Load
 
-loader = Load()
+loader = Load('output')
 
 def test_created_to_csv_success(tmp_path):
     users = [
     {
-        "id": "test-id-1",
+        "id": "123456",
         "name": "JOHN DOE",
         "email": "john@example.com",
         "full_address": "123 Main St, Illinois, Springfield, 12345"
     },
     {
-        "id": "test-id-2",
+        "id": "7891011",
         "name": "JANE SMITH",
         "email": "jane@example.com",
         "full_address": "456 Oak Ave, Metropolis, Metropolis, 54321"
@@ -28,7 +28,7 @@ def test_created_to_csv_success(tmp_path):
 def test_load_to_csv_file_content(tmp_path):
     users = [
     {
-        "id": "1",
+        "id": "11111111",
         "name": "JOHN DOE",
         "email": "john@example.com",
         "full_address": "123 Main St, Illinois, Springfield, 12345"
@@ -42,7 +42,7 @@ def test_load_to_csv_file_content(tmp_path):
         reader = csv.DictReader(f)
         rows = list(reader)
     assert len(rows) == 1
-    assert rows[0]['id'] == '1'
+    assert rows[0]['id'] == '11111111'
     assert rows[0]['email'] == 'john@example.com'
     assert rows[0]["name"] == "JOHN DOE"
     assert rows[0]['full_address'] == '123 Main St, Illinois, Springfield, 12345'

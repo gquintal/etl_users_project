@@ -5,7 +5,7 @@ transform = Transform()
 
 # Test cases for is_valid_email function
 def test_is_valid_email():
-    assert transform.is_valid_email("test@example.com"), "Email válido rechazado"
+    assert transform.is_valid_email("contact@latailabs.com"), "Email válido rechazado"
     assert not transform.is_valid_email("invalid-email")
 
 # Test cases for normalize_name function
@@ -40,15 +40,15 @@ def test_normalize_name_with_spaces():
 def test_normalize_address():
     user = {'location': {
             'street': {
-                'number': 123, 
-                'name': 'Main St'
+                'number': 664, 
+                'name': '447 Broadway'
             },
-            'city': 'Mérida', 
-            'state': 'Yucatán', 
-            'postcode': '97000'
+            'city': 'New York', 
+            'state': 'New York', 
+            'postcode': '10013'
             }
         }
-    assert transform.normalize_address(user) == "123 Main St, Yucatán, Mérida, 97000"
+    assert transform.normalize_address(user) == "664 447 Broadway, New York, New York, 10013"
 
 #Test validate unique IDs
 def test_transform_unique_ids_and_filter():
@@ -58,8 +58,8 @@ def test_transform_unique_ids_and_filter():
             }, 
             'email': 'test@example.com', 
             'name': {
-                'first': 'A',
-                'last': 'B'
+                'first': 'Fernando',
+                'last': 'Barrios'
                 },
             'location': {
                 'street': {
@@ -93,8 +93,8 @@ def test_transform_unique_ids_and_filter():
             }, 
             'email': 'invalid',
             'name': {
-                'first': 'X',
-                'last': 'Y'
+                'first': 'Adan',
+                'last': 'Aguirre'
                 },
             'location': {
                 'street': {

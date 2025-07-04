@@ -6,16 +6,6 @@ from dotenv import load_dotenv
 
 #create logger for this class
 logger = logging.getLogger(__name__)
-
-# Load environment variables from .env file
-load_dotenv()
-
-# Get the output filename from environment variable or use default
-filename = os.getenv('OUTPUT_FILENAME', 'users_cleaned.csv')
-
-# Get the output directory from environment variable or use default
-output_dir = os.getenv('OUTPUT_DIR', 'output')
-
 class Load:
     def __init__(self, output_dir: str):
         self.output_dir = output_dir

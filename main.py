@@ -24,10 +24,10 @@ def main():
 
     # Get environment variables
     url = os.getenv('USERS_API_URL')
-    counter = os.getenv('USERS_COUNT')
+    counter = int(os.getenv('USERS_COUNT'))
 
-    output_dir = os.getenv('OUTPUT_DIR', 'output')
-    filename = os.getenv('OUTPUT_FILENAME', 'users_cleaned.csv')
+    output_dir = os.getenv('ETL_OUTPUT_DIR', 'output')
+    filename = os.getenv('ETL_OUTPUT_FILE', 'users_cleaned.csv')
     
     logger.info("Starting ETL process")
 
